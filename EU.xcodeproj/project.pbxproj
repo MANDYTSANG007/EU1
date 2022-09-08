@@ -14,6 +14,7 @@
 		58A8C0DC28BD7D3400D16428 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58A8C0DB28BD7D3400D16428 /* Assets.xcassets */; };
 		58A8C0DF28BD7D3400D16428 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58A8C0DD28BD7D3400D16428 /* LaunchScreen.storyboard */; };
 		58A8C0E928BDDAE400D16428 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A8C0E828BDDAE400D16428 /* DetailTableViewController.swift */; };
+		58D3E39528CA579200D93469 /* Nation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D3E39428CA579200D93469 /* Nation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		58A8C0DE28BD7D3400D16428 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		58A8C0E028BD7D3400D16428 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58A8C0E828BDDAE400D16428 /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		58D3E39428CA579200D93469 /* Nation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				58A8C0D228BD7D3000D16428 /* AppDelegate.swift */,
 				58A8C0D428BD7D3000D16428 /* SceneDelegate.swift */,
+				58D3E39428CA579200D93469 /* Nation.swift */,
 				58A8C0D628BD7D3000D16428 /* ViewController.swift */,
 				58A8C0E828BDDAE400D16428 /* DetailTableViewController.swift */,
 				58A8C0D828BD7D3000D16428 /* Main.storyboard */,
@@ -143,6 +146,7 @@
 			files = (
 				58A8C0E928BDDAE400D16428 /* DetailTableViewController.swift in Sources */,
 				58A8C0D728BD7D3000D16428 /* ViewController.swift in Sources */,
+				58D3E39528CA579200D93469 /* Nation.swift in Sources */,
 				58A8C0D328BD7D3000D16428 /* AppDelegate.swift in Sources */,
 				58A8C0D528BD7D3000D16428 /* SceneDelegate.swift in Sources */,
 			);

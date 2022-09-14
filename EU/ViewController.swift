@@ -12,35 +12,35 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addBarButton: UIBarButtonItem!
     
-    var members = [
-        "Austria",
-        "Belgium",
-        "Bulgaria",
-        "Croatia",
-        "Cyprus",
-        "Czechia",
-        "Denmark",
-        "Estonia",
-        "Finland",
-        "France",
-        "Germany",
-        "Greece",
-        "Hungary",
-        "Ireland",
-        "Italy",
-        "Latvia",
-        "Lithuania",
-        "Luxembourg",
-        "Malta",
-        "Netherlands",
-        "Poland",
-        "Portugal",
-        "Romania",
-        "Slovakia",
-        "Slovenia",
-        "Spain",
-        "Sweden",
-        "United Kingdom"]
+//    var members = [
+//        "Austria",
+//        "Belgium",
+//        "Bulgaria",
+//        "Croatia",
+//        "Cyprus",
+//        "Czechia",
+//        "Denmark",
+//        "Estonia",
+//        "Finland",
+//        "France",
+//        "Germany",
+//        "Greece",
+//        "Hungary",
+//        "Ireland",
+//        "Italy",
+//        "Latvia",
+//        "Lithuania",
+//        "Luxembourg",
+//        "Malta",
+//        "Netherlands",
+//        "Poland",
+//        "Portugal",
+//        "Romania",
+//        "Slovakia",
+//        "Slovenia",
+//        "Spain",
+//        "Sweden",
+//        "United Kingdom"]
     
 //    var capitals = ["Vienna",
 //                    "Brussels",
@@ -180,15 +180,29 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension ViewController: UITableViewDelegate, UITableViewDataSource, ListTableViewCellDelegate {
+    //5.12 13:00 added listTableViewCellDelegate and click "fix"
+    func euroButtonToggled(sender: ListTableViewCell) {
+        if let selectedIndexPath = tableView.indexPath(for: sender) {
+            nations[selectedIndexPath.row].usesEuro = !nations[selectedIndexPath.row].usesEuro // this turns true to false, false to true
+            tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
+            saveData()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return nations.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = nations[indexPath.row].country
-        cell.detailTextLabel?.text = "Capital: \(nations[indexPath.row].capital)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListTableViewCell// add a subclass that we created for the captial label
+        //        cell.textLabel?.text = nations[indexPath.row].country
+        //        cell.detailTextLabel?.text = "Capital: \(nations[indexPath.row].capital)"
+        cell.delegate = self //5.12 13:40
+//        cell.countryLabel.text = nations[indexPath.row].country
+//        cell.capitalLabel.text = nations[indexPath.row].capital
+//        cell.euroButton.isSelected = nations[indexPath.row].usesEuro
+        cell.nation = nations[indexPath.row] // 5.12 16:30
         return cell
     }
     
@@ -207,5 +221,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         nations.remove(at: sourceIndexPath.row)
         nations.insert(itemToMove, at: destinationIndexPath.row)
         saveData()
+    }
+    
+    // 5.12 11:00
+    // Pro tip- whenever setting a non-standard height for a table view cell, make sure you also include the function tableView(heightForRowAt:). When resizing cells, the size inspector will change height on the storyboard, but not in the running application.
+    // type "heightforrowat" to get the following line, to resize row to 60 pt each
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
 }

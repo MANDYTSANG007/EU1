@@ -178,7 +178,8 @@ class ViewController: UIViewController {
             addBarButton.isEnabled = false
         }
     }
-}
+} // testing
+
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource, ListTableViewCellDelegate {
     //5.12 13:00 added listTableViewCellDelegate and click "fix"
